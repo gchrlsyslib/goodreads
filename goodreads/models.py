@@ -70,9 +70,6 @@ class BookBucket(models.Model):
 	rating = models.CharField(max_length=1, choices=RATING_CHOICES)
 	tags = TaggableManager()
 	
-	def get_absolute_url(self):
-		return(reverse('workroom:bucket_item_view', kwargs={"itemID":self.pk}))
-
 	def __str__(self):
 		return self.title.title
 		
