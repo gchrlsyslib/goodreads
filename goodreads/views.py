@@ -5,7 +5,13 @@ from goodreads import user as gr_user
 from goodreads import author as gr_author
 from goodreads import request as gr_request
 from django.core.exceptions import ObjectDoesNotExist
+from django.conf import settings
 import xmltodict
+
+grKey = settings.GR_KEY
+grSecret = settings.GR_SECRET
+
+grClient = client.GoodreadsClient(grKey,grSecret)
 
 def goodReadsOAUTH_verification(request):
 	try:
