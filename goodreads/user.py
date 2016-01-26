@@ -1,8 +1,8 @@
-import book
-import request
-import group
-import owned_book
-import review
+import goodreads.book
+import goodreads.request
+import goodreads.group
+import goodreads.owned_book
+import goodreads.review
 
 class GoodreadsUser():
     def __init__(self, user_dict, client):
@@ -10,10 +10,7 @@ class GoodreadsUser():
         self._client = client   # for later queries
 
     def __repr__(self):
-        if self.user_name:
-            return self.user_name
-        else:
-            return self.gid
+        return self.user_name
 
     @property
     def gid(self):
