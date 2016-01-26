@@ -1,4 +1,4 @@
-"""Goodreads book class"""
+"""Goodreads book class - modified for python 3"""
 
 import goodreads.author
 
