@@ -1,14 +1,14 @@
 import webbrowser
-from session import GoodreadsSession
-from user import GoodreadsUser
-from book import GoodreadsBook
-from author import GoodreadsAuthor
-from request import GoodreadsRequest
-from comment import GoodreadsComment
-from event import GoodreadsEvent
-from group import GoodreadsGroup
-from owned_book import GoodreadsOwnedBook
-from review import GoodreadsReview
+from goodreads.session import GoodreadsSession
+from goodreads.user import GoodreadsUser
+from goodreads.book import GoodreadsBook
+from goodreads.author import GoodreadsAuthor
+from goodreads.request import GoodreadsRequest
+from goodreads.comment import GoodreadsComment
+from goodreads.event import GoodreadsEvent
+from goodreads.group import GoodreadsGroup
+from goodreads.owned_book import GoodreadsOwnedBook
+from goodreads.review import GoodreadsReview
 import collections
 
 class GoodreadsClientException(Exception):
