@@ -1,6 +1,6 @@
-import user
-import book
-import comment
+import goodreads.user
+import goodreads.book
+import goodreads.comment
 
 class GoodreadsUserStatus:
     def __init__(self, user_status_dict):
