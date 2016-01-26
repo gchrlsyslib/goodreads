@@ -1,5 +1,5 @@
-import book
-import user
+import goodreads.book
+import goodreads.user
 
 class GoodreadsAuthor:
     def __init__(self, author_dict, client):
