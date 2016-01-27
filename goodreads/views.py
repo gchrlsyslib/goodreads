@@ -19,7 +19,7 @@ def goodReadsOAUTH_verification(request):
 		request.session['grSessionInfo'] = grClient
 		return HttpResponseRedirect(gcURL)
 	except:
-		return render(request, 'workroom/oauth_error.html', {'error':'OAUTH validation failed.','page_title':'OAUTH Error'})
+		return render(request, 'gr-django/oauth_error.html', {'error':'OAUTH validation failed.','page_title':'OAUTH Error'})
 
 def goodReadsOAUTH_handler(request):
 	if request.method == "GET" and ('authorize' in request.GET):
@@ -31,12 +31,12 @@ def goodReadsOAUTH_handler(request):
 					grClient.session.oauth_resume()
 					grClient.session.oauth_finalize()
 				except:
-					return render(request, 'workroom/oauth_error.html', {'error':'OAUTH verification failed, please try again.','page_title':'OAUTH Error'})
+					return render(request, 'gr-django/oauth_error.html', {'error':'OAUTH verification failed, please try again.','page_title':'OAUTH Error'})
 			try:
 				gc_user = grClient.auth_user()
 				gc_user = grClient.user(user_id=gc_user.gid)
 			except:
-				return render(request, 'workroom/oauth_error.html', {'error':'No authorized GoodReads user was found in this session, please try again.','page_title':'OAUTH Error'})
+				return render(request, 'gr-django/oauth_error.html', {'error':'No authorized GoodReads user was found in this session, please try again.','page_title':'OAUTH Error'})
 			if gc_user:
 				try:
 					request.user.grimport
@@ -80,12 +80,12 @@ def goodReadsOAUTH_handler(request):
 										UpdateTags(temp)
 							return HttpResponseRedirect(reverse('workroom:success', kwargs={'user':request.user.username,'type':'goodreads-import'}))
 						except TypeError:
-							return render(request, 'workroom/oauth_error.html', {'error':'Goodreads returned information in a format this application does not recognize; this generally occurs when your owned books shelf only contains a single item. Please add another item on GoodReads and try importing again.','page_title':'OAUTH Error'})
+							return render(request, 'gr-django/oauth_error.html', {'error':'Goodreads returned information in a format this application does not recognize; this generally occurs when your owned books shelf only contains a single item. Please add another item on GoodReads and try importing again.','page_title':'OAUTH Error'})
 					else:
-						return render(request, 'workroom/oauth_error.html', {'error':'No owned books were returned.','page_title':'OAUTH Error'})
+						return render(request, 'gr-django/oauth_error.html', {'error':'No owned books were returned.','page_title':'OAUTH Error'})
 				else:
-					return render(request, 'workroom/oauth_error.html', {'error':'No owned books were returned.','page_title':'OAUTH Error'})
+					return render(request, 'gr-django/oauth_error.html', {'error':'No owned books were returned.','page_title':'OAUTH Error'})
 		else:
-			return render(request, 'workroom/oauth_error.html', {'error':'GCHRL.org was denied OAUTH permission for this account.','page_title':'OAUTH Error'})
+			return render(request, 'gr-django/oauth_error.html', {'error':'This site was denied OAUTH permission for this account.','page_title':'OAUTH Error'})
 	else:
-		return render(request, 'workroom/oauth_error.html', {'error':'GCHRL.org was denied OAUTH permission for this account.','page_title':'OAUTH Error'})
+		return render(request, 'workroom/oauth_error.html', {'error':'This site was denied OAUTH permission for this account.','page_title':'OAUTH Error'})
