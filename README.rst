@@ -6,7 +6,10 @@ goodreads
 
 This package provides a Python interface for the `Goodreads
 API <http://goodreads.com/api>`__. Using it, you can do pretty much
-anything that Goodreads allows to do with their own data.
+anything that Goodreads allows to do with their own data. It expands on the 
+version by `sefakilic <https://github.com/sefakilic/goodreads>`__, adding 
+both rudimentary Python 3.x compatibility and making it interface with
+the Django CMS
 
 Dependencies
 ------------
@@ -16,6 +19,7 @@ This package depends on the following packages:
 -  xmltodict
 -  requests
 -  rauth
+-  django-taggit
 
 They can be installed using ``pip``.
 
