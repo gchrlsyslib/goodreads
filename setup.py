@@ -8,7 +8,7 @@ setup(
     author_email='sefakilic@gmail.com',
     url='https://github.com/sefakilic/goodreads/',
     version='0.2.4',
-    install_requires=['nose', 'xmltodict', 'requests', 'rauth'],
+    install_requires=['nose', 'xmltodict', 'requests', 'rauth', 'django-taggit'],
     packages=['goodreads'],
     scripts=[],
     license='MIT',
