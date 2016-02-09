@@ -30,7 +30,7 @@ class GoodreadsClient():
     def query_dict(self):
         return {'key': self.client_key}
 
-    # Returns authentication URL for web API
+    # Returns callback URL for web API, or allows user to log in to Goodreads to authorize the app
     def authenticate(self, access_token=None, access_token_secret=None):
         """Authenticate client to query requiring authorization"""
         self.session = GoodreadsSession(self.client_key, self.client_secret,
